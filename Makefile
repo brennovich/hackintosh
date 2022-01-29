@@ -1,7 +1,9 @@
 clean:
 	rm -rf tools/ProperTree \
 		tools/gfxutil* \
-		tools/MountEFI
+		tools/MountEFI \
+		tools/USBMap \
+		tools/GenSMBIOS
 
 tools/ProperTree:
 	git clone https://github.com/corpnewt/ProperTree tools/ProperTree
@@ -17,7 +19,24 @@ tools/MountEFI:
 	git clone https://github.com/corpnewt/MountEFI tools/MountEFI
 	cd tools/MountEFI && chmod +x MountEFI.command
 
+tools/USBMap:
+	git clone https://github.com/corpnewt/USBMap tools/USBMap
+	cd tools/USBMap && chmod +x USBMap.command
+
+tools/GenSMBIOS:
+	git clone https://github.com/corpnewt/GenSMBIOS tools/GenSMBIOS
+	cd tools/GenSMBIOS && chmod +x GenSMBIOS.command
+
+tools/CPUFriendFriend:
+	git clone https://github.com/corpnewt/CPUFriendFriend tools/CPUFriendFriend
+	cd tools/CPUFriendFriend && chmod +x CPUFriendFriend.command
+
+configure/fonts:
+	defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+
 .PHONY=tools/ProperTree \
 	tools/gfxutil  \
-	tools/MountEFI
+	tools/MountEFI \
+	tools/USBMap \
+	tools/GenSMBIOS
 
