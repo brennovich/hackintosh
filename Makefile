@@ -32,7 +32,10 @@ tools/CPUFriendFriend:
 	cd tools/CPUFriendFriend && chmod +x CPUFriendFriend.command
 
 configure/fonts:
-	defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+	defaults -currentHost write -globalDomain AppleFontSmoothing -int 3
+
+install/colorprofile: ./Assets/T460s_FHD_N140HCE_EAA.icm
+	cp ./$< ~/Library/ColorSync/Profiles/$$(basename $<)
 
 .PHONY=tools/ProperTree \
 	tools/gfxutil  \
